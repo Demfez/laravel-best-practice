@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Middleware\Authenticate;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductController;
 
 //JWT Default routes
 Route::group([
@@ -19,8 +18,4 @@ Route::group([
 
 });
 
-Route::get('abc', function(){
-
-    return response()->json(['message' => 'Authenticated']);
-
-})->middleware(Authenticate::class);
+Route::post('product', [ProductController::class, 'create']);
